@@ -6,7 +6,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "8080:80"
+      - "8081:80"
 
   backend:
     build: ./backend
@@ -20,8 +20,8 @@ services:
     image: postgres
     container_name: db
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=${DB_PASS}
+      - POSTGRES_PASSWORD=${DB_USER}
     ports:
       - '5432:5432'
     volumes:
